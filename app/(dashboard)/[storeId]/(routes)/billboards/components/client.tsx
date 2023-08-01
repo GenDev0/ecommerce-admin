@@ -7,6 +7,7 @@ import Heading from "@/components/ui/heading";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { DataTable } from "@/components/ui/data-table";
+import ApiList from "@/components/ui/api-list";
 
 import { BillboardColumn, columns } from "./columns";
 
@@ -36,6 +37,9 @@ const BillboardClient = ({ data }: BillboardClientProps) => {
       <div className='container mx-auto py-10'>
         <DataTable columns={columns} data={data} searchKey='label' />
       </div>
+      <Heading title={"API"} description={"API calls for Billboards"} />
+      <Separator />
+      <ApiList entityName={"billboards"} entityIdName={"billboardId"} />
     </>
   );
 };

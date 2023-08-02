@@ -9,13 +9,13 @@ import { Separator } from "@/components/ui/separator";
 import { DataTable } from "@/components/ui/data-table";
 import ApiList from "@/components/ui/api-list";
 
-import { SizeColumn, columns } from "./columns";
+import { ProductColumn, columns } from "./columns";
 
-interface SizeClientProps {
-  data: SizeColumn[];
+interface ProductClientProps {
+  data: ProductColumn[];
 }
 
-const SizeClient = ({ data }: SizeClientProps) => {
+const ProductClient = ({ data }: ProductClientProps) => {
   const router = useRouter();
   const params = useParams();
 
@@ -23,23 +23,23 @@ const SizeClient = ({ data }: SizeClientProps) => {
     <>
       <div className='flex items-center justify-between'>
         <Heading
-          title={`Sizes (${data.length})`}
-          description={"Manage sizes or your store"}
+          title={`Products (${data.length})`}
+          description={"Manage products for your store"}
         />
-        <Button onClick={() => router.push(`/${params.storeId}/sizes/new`)}>
+        <Button onClick={() => router.push(`/${params.storeId}/products/new`)}>
           <Plus className='mr-2 h-4 w-4' />
           Add New
         </Button>
       </div>
       <Separator />
       <div className='container mx-auto py-10'>
-        <DataTable columns={columns} data={data} searchKey='name' />
+        <DataTable columns={columns} data={data} searchKey='label' />
       </div>
-      <Heading title={"API"} description={"API calls for Sizes"} />
+      <Heading title={"API"} description={"API calls for Products"} />
       <Separator />
-      <ApiList entityName={"sizes"} entityIdName={"sizeId"} />
+      <ApiList entityName={"products"} entityIdName={"productId"} />
     </>
   );
 };
 
-export default SizeClient;
+export default ProductClient;

@@ -33,7 +33,7 @@ const ProductClient = ({ data }: ProductClientProps) => {
       </div>
       <Separator />
       <div className='container mx-auto py-10'>
-        <DataTable columns={columns} data={data} searchKey='label' />
+        <DataTable columns={columns} data={data} searchKey='name' />
       </div>
       <Heading title={"API"} description={"API calls for Products"} />
       <Separator />
